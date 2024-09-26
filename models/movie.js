@@ -47,13 +47,14 @@ class Movie {
     };
     static update = (id, movie) => {
         const movieExist = findMovie(movies, id);
+        console.log("movie",movie)
         console.log(movieExist)
         if (movieExist) {
-            movieExist.title =(movie.title);
+            movieExist.logo = movie.logo;
+            movieExist.title =movie.title;
             console.log(movieExist.title);
             movieExist.year = movie.year;
             console.log(movieExist.year);
-            movieExist.logo = movie.logo;
             return movieExist;
         } else {
             return null;
