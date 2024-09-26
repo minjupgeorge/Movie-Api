@@ -48,10 +48,12 @@ const movieControllers = {
     },
     updateMovie: (req, res) => {
         const { id } = req.params;
-        const { title, logo, year } = req.body;
+        const {logo,title,year} = req.body;
+        console.log("req.body",req.body)
         const movie = Movie.getById(id);
         if (movie) {
-            Movie.update(id, { title, logo, year });
+            Movie.update(id, {logo,title,year});
+            console.log("movie detials to update",id,title,year)
             res.status(200).redirect('/api/get/');
         } else {
             res.status(404).render('404', {

@@ -1,3 +1,4 @@
+import { stringify } from 'uuid';
 import findMovie from '../utils/findMovies.js';
 
 let movies = [
@@ -46,11 +47,14 @@ class Movie {
     };
     static update = (id, movie) => {
         const movieExist = findMovie(movies, id);
+        console.log("movie",movie)
+        console.log(movieExist)
         if (movieExist) {
-            movieExist.title = movie.title;
-           // movieExist.director = movie.director;
-            movieExist.year = movie.year;
             movieExist.logo = movie.logo;
+            movieExist.title =movie.title;
+            console.log(movieExist.title);
+            movieExist.year = movie.year;
+            console.log(movieExist.year);
             return movieExist;
         } else {
             return null;
